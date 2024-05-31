@@ -1,17 +1,15 @@
 @use "../imports/settings.import" as *;
+@use "../imports/tools.import" as *;
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include customFlex(row, nowrap, space-between, center);
   &__logo {
     font-size: 1.3rem;
     font-weight: bolder;
     text-shadow: 2px 2px 2px $highlight;
   }
   &__github {
-    display: flex;
-    align-items: center;
+    @include customFlex(row, nowrap, normal, center);
     gap: 0.5rem;
     color: $main;
     background-color: $highlight;

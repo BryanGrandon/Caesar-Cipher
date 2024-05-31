@@ -1,0 +1,59 @@
+@use "../imports/tools.import" as *;
+@use "../imports/settings.import" as *;
+
+.header {
+  background-image: url("https://images.pexels.com/photos/7319085/pexels-photo-7319085.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dp");
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+
+  &__bg {
+    background-color: #00000086;
+    height: inherit;
+  }
+
+  &__container {
+    @include customFlex(column, nowrap, normal, normal);
+    gap: 4rem;
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem;
+  }
+  &__h1 {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 2.5rem;
+    color: $main;
+  }
+
+  &__info {
+    @include customFlex(row, nowrap, center, center);
+    gap: 2rem;
+
+    &__img {
+      width: 22rem;
+    }
+
+    &__paragraph {
+      font-size: 1.1rem;
+      color: $main;
+    }
+  }
+  &__blank {
+    display: block;
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .header {
+    &__container {
+      gap: 3rem;
+    }
+
+    &__info {
+      @include customFlex(column, nowrap, center, center);
+    }
+  }
+}
