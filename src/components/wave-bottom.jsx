@@ -1,10 +1,6 @@
 import React from "react";
 
-function Wave({ position = "bottom" }) {
-  let $wave = document.querySelector(".wave");
-  if (position == "top") $wave.style.setProperty("top", "0");
-  else if (position == "bottom") $wave.style.setProperty("bottom", "0");
-
+function WaveBottom() {
   return (
     <section className="wave">
       <svg
@@ -21,4 +17,4 @@ function Wave({ position = "bottom" }) {
   );
 }
 
-export default Wave;
+export default WaveBottom;

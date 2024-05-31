@@ -1,0 +1,29 @@
+@use "../imports/settings.import" as *;
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__logo {
+    font-size: 1.3rem;
+    font-weight: bolder;
+    text-shadow: 2px 2px 2px $highlight;
+  }
+  &__github {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: $main;
+    background-color: $highlight;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.3rem;
+    box-shadow: 2px 2px 6px $stroke;
+    &:active {
+      color: $stroke;
+      box-shadow: 2px 2px 6px $stroke inset;
+    }
+    &:hover {
+      color: $stroke;
+    }
+  }
+}
