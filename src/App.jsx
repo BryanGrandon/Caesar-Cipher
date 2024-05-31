@@ -1,6 +1,9 @@
+import Header from "./container/header";
+
 function App() {
   return (
     <>
+      <Header />
       <main>Hello world</main>
     </>
   );
