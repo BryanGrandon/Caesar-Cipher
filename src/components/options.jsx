@@ -1,10 +1,8 @@
 import React from "react";
 
-function Options({ id, classN, title, option1, option2 }) {
+function Options({ id, onChange, title, option1, option2 }) {
   const handlerClick = (e) => {
-    console.log(e.target.checked);
     let value = e.target.checked;
-
     const option1 = document.querySelector(`.${id}__1`);
     const option2 = document.querySelector(`.${id}__2`);
     if (value) {
@@ -24,7 +22,8 @@ function Options({ id, classN, title, option1, option2 }) {
       <input
         type="checkbox"
         id={id}
-        className={`${classN} options__input`}
+        className={`options__input`}
+        onChange={onChange}
         onClick={handlerClick}
         defaultChecked
       />
