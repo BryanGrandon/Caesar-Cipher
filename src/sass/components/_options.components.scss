@@ -1,0 +1,27 @@
+@use "../imports/settings.import" as *;
+@use "../imports/tools.import" as *;
+
+.options {
+  @include customFlex(column, nowrap, normal, normal);
+  gap: 0.4rem;
+
+  &__title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-family: "Courier New", Courier, monospace;
+    color: $tertiary;
+  }
+
+  &__label {
+    @include customFlex(row, nowrap, space-evenly, normal);
+    gap: 0.5rem;
+  }
+  &__span {
+    &__1 {
+      color: $highlight;
+    }
+    &__2 {
+      color: $paragraph;
+    }
+  }
+}
