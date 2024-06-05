@@ -1,10 +1,11 @@
+import Content from "./container/content";
 import Header from "./container/header";
 
 function App() {
   return (
     <>
       <Header />
-      <main>Hello world</main>
+      <Content />
     </>
   );
 }

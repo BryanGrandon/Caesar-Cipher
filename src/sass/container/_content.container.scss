@@ -1,0 +1,106 @@
+@use "../imports/tools.import" as *;
+@use "../imports/settings.import" as *;
+
+.main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+  min-height: 100vh;
+  padding: 1rem 1rem;
+  @include customFlex(column, nowrap, space-evenly, normal);
+}
+
+.cipher {
+  display: grid;
+  grid-template-columns: 16rem 1fr 1fr;
+  grid-template-rows: 11rem 16rem;
+  justify-content: space-evenly;
+  gap: 2rem;
+  grid-template-areas:
+    "message message message message"
+    "options  result result result";
+
+  &__message {
+    grid-area: message;
+    @include customFlex(column, nowrap, normal, normal);
+    gap: 1rem;
+
+    &__input {
+      resize: none;
+      border-radius: 1rem;
+      padding: 1rem;
+      border: 2px solid $highlight;
+      box-shadow: 1px 1px 6px $highlight;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__options {
+    grid-area: options;
+    @include customFlex(column, nowrap, normal, normal);
+    gap: 1rem;
+
+    &__inputs {
+      @include customFlex(column, nowrap, space-evenly, normal);
+      padding: 1rem;
+      gap: 1.5rem;
+      border: 2px solid $highlight;
+      border-radius: 1rem;
+      box-shadow: 1px 1px 6px $highlight;
+      height: 100%;
+    }
+  }
+
+  &__shift {
+    display: flex;
+    gap: 0.5rem;
+
+    &__label {
+      display: flex;
+      gap: 0.5rem;
+      color: $tertiary;
+      font-family: "Courier New", Courier, monospace;
+      font-weight: bold;
+    }
+
+    &__input {
+      border-bottom: 1px solid $tertiary;
+      color: $highlight;
+      width: 5rem;
+      text-align: center;
+    }
+  }
+
+  &__encrypted-message {
+    grid-area: result;
+    @include customFlex(column, nowrap, normal, normal);
+    gap: 1rem;
+
+    &__output {
+      resize: none;
+      border-radius: 1rem;
+      padding: 1rem;
+      border: 2px solid $highlight;
+      box-shadow: 1px 1px 6px $highlight;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .cipher {
+    grid-template-areas: "message " "options" "result ";
+    grid-template-columns: 1fr;
+    grid-template-rows: 10rem auto 10rem;
+    &__options {
+      width: 18rem;
+    }
+  }
+}
+@media screen and (max-width: 390px) {
+  .cipher__options {
+    width: 100%;
+  }
+}
