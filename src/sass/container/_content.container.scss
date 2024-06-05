@@ -11,14 +11,16 @@
 }
 
 .cipher {
-  display: grid;
-  grid-template-columns: 16rem 1fr 1fr;
-  grid-template-rows: 11rem 16rem;
-  justify-content: space-evenly;
-  gap: 2rem;
-  grid-template-areas:
-    "message message message message"
-    "options  result result result";
+  &__content {
+    display: grid;
+    grid-template-columns: 16rem 1fr 1fr;
+    grid-template-rows: 11rem 18rem;
+    justify-content: space-evenly;
+    gap: 2rem;
+    grid-template-areas:
+      "message message message message"
+      "options  result result result";
+  }
 
   &__message {
     grid-area: message;
@@ -40,6 +42,7 @@
     grid-area: options;
     @include customFlex(column, nowrap, normal, normal);
     gap: 1rem;
+    height: 100%;
 
     &__inputs {
       @include customFlex(column, nowrap, space-evenly, normal);
@@ -91,11 +94,13 @@
 
 @media screen and (max-width: 770px) {
   .cipher {
-    grid-template-areas: "message " "options" "result ";
-    grid-template-columns: 1fr;
-    grid-template-rows: 10rem auto 10rem;
-    &__options {
-      width: 18rem;
+    &__content {
+      grid-template-areas: "message " "options" "result ";
+      grid-template-columns: 1fr;
+      grid-template-rows: 10rem auto 10rem;
+      &__options {
+        width: 18rem;
+      }
     }
   }
 }

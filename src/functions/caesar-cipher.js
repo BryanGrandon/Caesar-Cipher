@@ -1,6 +1,13 @@
-const caesarCipher = (message, scroll, isEnglish, withSpecialCharacters) => {
+const caesarCipher = (
+  message,
+  scroll,
+  isEnglish,
+  withSpecialCharacters,
+  isEncrypted
+) => {
   const alphabetEnglish = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const alphabetSpanish = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+
   const alphabet = isEnglish
     ? alphabetEnglish.trim().split("")
     : alphabetSpanish.trim().split("");
@@ -13,12 +20,16 @@ const caesarCipher = (message, scroll, isEnglish, withSpecialCharacters) => {
       const letterIndex = alphabet.indexOf(letter);
       let scrolling = scroll % alphabet.length;
 
-      if (letterIndex + scrolling < alphabet.length) {
-        encryptedMessage += alphabet.at(letterIndex + scrolling);
-      } else if (letterIndex + scrolling >= alphabet.length) {
-        encryptedMessage += alphabet.at(
-          letterIndex + scrolling - alphabet.length
-        );
+      if (!isEncrypted) {
+        encryptedMessage +=
+          letterIndex + scrolling < alphabet.length
+            ? alphabet.at(letterIndex + scrolling)
+            : alphabet.at(letterIndex + scrolling - alphabet.length);
+      } else {
+        encryptedMessage +=
+          letterIndex + scrolling < alphabet.length
+            ? alphabet.at(letterIndex - scrolling)
+            : alphabet.at(letterIndex - scrolling + alphabet.length);
       }
     } else {
       encryptedMessage += withSpecialCharacters ? letter : "";
