@@ -1,8 +1,7 @@
+@use "../imports/settings.import" as *;
+
 /* Here we define the custom properties */
 :root {
-  --dark: #242629;
-  --white: #f7f7f7;
-  /* Typography */
   --type-primary: system-ui, -apple-system, sans-serif;
   --type-secondary: Verdana;
 }
@@ -91,12 +90,12 @@ q:after {
 
 /* We configure the text we select */
 ::-moz-selection {
-  background-color: var(--dark);
-  color: var(--white);
+  background-color: $tertiary;
+  color: $stroke;
 }
 ::selection {
-  background-color: var(--dark);
-  color: var(--white);
+  background-color: $tertiary;
+  color: $stroke;
 }
 
 /* We level typography and forms placement problems. */
@@ -143,8 +142,8 @@ body {
   min-height: 100vh;
   font-size: 100%;
   font-family: var(--type-primary);
-  color: var(--dark);
-  background-color: #efefef;
+  color: $dark;
+  background-color: $white;
   line-height: 1.4em;
   /* optional */
   font-smooth: always;
@@ -159,7 +158,7 @@ h2,
 h3,
 h4 {
   text-wrap: balance;
-  line-height: 1;
+  line-height: 1.6;
 }
 p {
   text-wrap: pretty;
@@ -170,7 +169,7 @@ p {
 
 @media (prefers-color-scheme: dark) {
   body {
-    color: var(--white);
-    background-color: var(--dark);
+    color: $white;
+    background-color: $dark;
   }
 }
