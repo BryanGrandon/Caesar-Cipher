@@ -4,6 +4,7 @@
 .navbar {
   @include customFlex(row, nowrap, space-between, center);
   &__logo {
+    color: #fff;
     font-size: 1.3rem;
     font-weight: bolder;
     text-shadow: 2px 2px 2px $highlight;
@@ -16,6 +17,7 @@
     padding: 0.3rem 0.6rem;
     border-radius: 0.3rem;
     box-shadow: 2px 2px 6px $stroke;
+
     &:active {
       color: $stroke;
       box-shadow: 2px 2px 6px $stroke inset;
