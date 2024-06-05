@@ -1,0 +1,22 @@
+@use "../imports/tools.import" as *;
+@use "../imports/settings.import" as *;
+
+.select-mode {
+  @include customFlex(row, nowrap, space-evenly, center);
+  gap: 1rem;
+  padding: 2rem 0;
+
+  &__btn {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 0.2rem 1rem;
+    color: $paragraph;
+  }
+
+  &--active {
+    color: $tertiary;
+    border-bottom: 2px solid $highlight;
+  }
+}
