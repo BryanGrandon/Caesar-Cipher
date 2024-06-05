@@ -13,11 +13,10 @@ function Content() {
 
   const $ = (theClass) => document.querySelector(theClass);
 
-  const handlerClickEncrypt = (e) => {
+  const handlerClickEncrypt = () => {
     $(".encrypt").classList.toggle("select-mode--active");
     $(".decrypt").classList.toggle("select-mode--active");
-    let list = e.target.classList.value;
-    let value = list.includes("encrypt") ? false : true;
+    let value = isEncrypt == true ? false : true;
     let text = caesarCipher(message, shift, alphabet, specialCharacters, value);
     setIsEncrypt(value);
     $(".output").textContent = text;
