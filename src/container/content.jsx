@@ -3,13 +3,17 @@ import Options from "../components/options";
 import { caesarCipher } from "../functions/caesar-cipher";
 import TitleH2 from "../components/title-h2";
 import SelectMode from "../components/select-mode";
+import CopyIconButton from "../components/buttons/copy-icon-button";
 
 function Content() {
+  // Caesar cipher
   const [message, setMessage] = useState("");
   const [shift, setShift] = useState(3);
   const [specialCharacters, setSpecialCharacters] = useState(true);
   const [alphabet, setAlphabet] = useState(true);
   const [isEncrypt, setIsEncrypt] = useState(false);
+  // Message copy
+  const [MessageFinal, setMessageFinal] = useState();
 
   const $ = (theClass) => document.querySelector(theClass);
 
@@ -19,6 +23,7 @@ function Content() {
     let value = isEncrypt == true ? false : true;
     let text = caesarCipher(message, shift, alphabet, specialCharacters, value);
     setIsEncrypt(value);
+    setMessageFinal(text);
     $(".output").textContent = text;
   };
 
@@ -32,6 +37,7 @@ function Content() {
       isEncrypt
     );
     setAlphabet(value);
+    setMessageFinal(text);
     $(".output").textContent = text;
   };
 
@@ -45,6 +51,7 @@ function Content() {
       isEncrypt
     );
     setMessage(value);
+    setMessageFinal(text);
     $(".output").textContent = text;
   };
 
@@ -58,6 +65,7 @@ function Content() {
       isEncrypt
     );
     setShift(value);
+    setMessageFinal(text);
     $(".output").textContent = text;
   };
 
@@ -65,6 +73,7 @@ function Content() {
     let value = e.target.checked;
     let text = caesarCipher(message, shift, alphabet, value, isEncrypt);
     setSpecialCharacters(value);
+    setMessageFinal(text);
     $(".output").textContent = text;
   };
 
@@ -118,6 +127,12 @@ function Content() {
           <section className="cipher__encrypted-message">
             <TitleH2 text="Encrypted message" />
             <p className="cipher__encrypted-message__output output"></p>
+            <CopyIconButton
+              className="cipher__encrypted-message__output__copy"
+              onClick={() => {
+                navigator.clipboard.writeText([MessageFinal]);
+              }}
+            />
           </section>
         </section>
       </article>

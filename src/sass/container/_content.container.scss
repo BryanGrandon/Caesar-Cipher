@@ -79,6 +79,7 @@
     grid-area: result;
     @include customFlex(column, nowrap, normal, normal);
     gap: 1rem;
+    position: relative;
 
     &__output {
       resize: none;
@@ -88,6 +89,13 @@
       box-shadow: 1px 1px 6px $highlight;
       width: 100%;
       height: 100%;
+
+      &__copy {
+        color: $tertiary;
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+      }
     }
   }
 }
