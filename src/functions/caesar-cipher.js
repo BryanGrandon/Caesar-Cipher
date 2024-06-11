@@ -1,3 +1,22 @@
+const selectAlphabet = (isEnglish) => {
+  const alphabetEnglish = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const alphabetSpanish = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+  return isEnglish
+    ? alphabetEnglish.trim().split("")
+    : alphabetSpanish.trim().split("");
+};
+
+const encrypted = (letterIndex, scrolling, alphabet) => {
+  return letterIndex + scrolling < alphabet.length
+    ? alphabet.at(letterIndex + scrolling)
+    : alphabet.at(letterIndex + scrolling - alphabet.length);
+};
+
+const decrypt = (letterIndex, scrolling, alphabet) => {
+  scrolling = -scrolling;
+  return encrypted(letterIndex, scrolling, alphabet);
+};
+
 const caesarCipher = (
   message,
   scroll,
@@ -5,12 +24,7 @@ const caesarCipher = (
   withSpecialCharacters,
   isEncrypted
 ) => {
-  const alphabetEnglish = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const alphabetSpanish = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
-
-  const alphabet = isEnglish
-    ? alphabetEnglish.trim().split("")
-    : alphabetSpanish.trim().split("");
+  let alphabet = selectAlphabet(isEnglish);
 
   let encryptedMessage = "";
   const messageInArray = message.trim().toUpperCase().split("");
@@ -20,22 +34,16 @@ const caesarCipher = (
       const letterIndex = alphabet.indexOf(letter);
       let scrolling = scroll % alphabet.length;
 
-      if (!isEncrypted) {
-        encryptedMessage +=
-          letterIndex + scrolling < alphabet.length
-            ? alphabet.at(letterIndex + scrolling)
-            : alphabet.at(letterIndex + scrolling - alphabet.length);
-      } else {
-        encryptedMessage +=
-          letterIndex + scrolling < alphabet.length
-            ? alphabet.at(letterIndex - scrolling)
-            : alphabet.at(letterIndex - scrolling + alphabet.length);
-      }
+      encryptedMessage += !isEncrypted
+        ? encrypted(letterIndex, scrolling, alphabet)
+        : decrypt(letterIndex, scrolling, alphabet);
     } else {
       encryptedMessage += withSpecialCharacters ? letter : "";
     }
   });
   return encryptedMessage;
 };
+
+caesarCipher("x", -3, true, true, true);
 
 export { caesarCipher };
