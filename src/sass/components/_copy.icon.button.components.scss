@@ -18,3 +18,9 @@
 .icon-copy-outline:active + .icon-copy {
   display: block;
 }
+
+@media (prefers-color-scheme: light) {
+  .icon {
+    filter: drop-shadow(1px 1px 3px #ffffff);
+  }
+}
