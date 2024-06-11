@@ -1,7 +1,16 @@
+@import "../imports/settings.import";
+
 .title-h2 {
   font-family: "Courier New", Courier, monospace;
   font-size: 1.3rem;
   font-weight: bold;
   letter-spacing: 1px;
   padding: 0 0.8rem;
+  color: $tertiary;
+}
+
+@media (prefers-color-scheme: dark) {
+  .title-h2 {
+    color: $main;
+  }
 }

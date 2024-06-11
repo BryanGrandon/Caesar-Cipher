@@ -9,7 +9,7 @@
     font-size: 1.1rem;
     font-weight: bold;
     font-family: "Courier New", Courier, monospace;
-    color: $tertiary;
+    color: $highlight;
   }
 
   &__label {
@@ -18,7 +18,7 @@
   }
   &__span {
     &__1 {
-      color: $highlight;
+      color: $tertiary;
     }
     &__2 {
       color: $paragraph;
