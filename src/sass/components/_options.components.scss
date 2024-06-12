@@ -9,12 +9,11 @@
     font-size: 1.1rem;
     font-weight: bold;
     font-family: "Courier New", Courier, monospace;
-    color: $highlight;
   }
 
   &__label {
     @include customFlex(row, nowrap, space-evenly, normal);
-    gap: 0.5rem;
+    gap: 2rem;
   }
   &__span {
     &__1 {
@@ -24,4 +23,11 @@
       color: $paragraph;
     }
   }
+}
+
+.alphabet {
+  grid-area: alphabet;
+}
+.characters {
+  grid-area: special;
 }

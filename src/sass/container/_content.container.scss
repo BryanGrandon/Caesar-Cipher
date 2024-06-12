@@ -44,7 +44,13 @@
     height: 100%;
 
     &__inputs {
-      @include customFlex(column, nowrap, space-evenly, normal);
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      grid-template-areas:
+        "shift "
+        "alphabet"
+        "special";
       @include glass();
       padding: 1rem;
       gap: 1.5rem;
@@ -54,19 +60,19 @@
   }
 
   &__shift {
+    grid-area: shift;
     display: flex;
     gap: 0.5rem;
 
     &__label {
       display: flex;
       gap: 0.5rem;
-      color: $highlight;
       font-family: "Courier New", Courier, monospace;
       font-weight: bold;
     }
 
     &__input {
-      border-bottom: 1px solid $highlight;
+      border-bottom: 1px solid;
       color: $tertiary;
       width: 5rem;
       text-align: center;
@@ -78,13 +84,13 @@
     @include customFlex(column, nowrap, normal, normal);
     gap: 1rem;
     position: relative;
+    overflow: auto;
 
     &__output {
       @include glass();
-      resize: none;
+      overflow: auto;
       border-radius: 1rem;
       padding: 1rem;
-      width: 100%;
       height: 100%;
 
       &__copy {
@@ -108,9 +114,27 @@
       }
     }
   }
+  .cipher__options__inputs {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2rem auto;
+    grid-template-areas:
+      "shift shift"
+      "alphabet special";
+  }
 }
 @media screen and (max-width: 390px) {
   .cipher__options {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .cipher__options__inputs {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "shift "
+      "alphabet"
+      "special";
   }
 }

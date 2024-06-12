@@ -74,7 +74,7 @@ function Content() {
     let text = caesarCipher(message, shift, alphabet, value, isEncrypt);
     setSpecialCharacters(value);
     setMessageFinal(text);
-    $(".output").textContent = text;
+    $(".output").innerText = text;
   };
 
   return (
@@ -94,14 +94,6 @@ function Content() {
           <section className="cipher__options">
             <TitleH2 text="Options" />
             <section className="cipher__options__inputs">
-              <Options
-                id="id-alphabet"
-                title="Alphabet"
-                option1="English"
-                option2="Spanish"
-                onChange={handlerChangeAlphabet}
-              />
-
               <section className="cipher__shift">
                 <label className="cipher__shift__label">
                   Shift
@@ -113,6 +105,15 @@ function Content() {
                   />
                 </label>
               </section>
+
+              <Options
+                id="id-alphabet"
+                title="Alphabet"
+                classN="alphabet"
+                option1="English"
+                option2="Spanish"
+                onChange={handlerChangeAlphabet}
+              />
 
               <Options
                 id="id-characters"
