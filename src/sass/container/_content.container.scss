@@ -7,6 +7,7 @@
   min-height: 100vh;
   padding: 1rem;
   @include customFlex(column, nowrap, center, normal);
+  @include customScroll($highlight, transparent, 0.4rem);
 }
 
 .cipher {
@@ -85,7 +86,6 @@
     @include customFlex(column, nowrap, normal, normal);
     gap: 1rem;
     position: relative;
-    overflow: auto;
 
     &__output {
       @include glass();

@@ -1,9 +1,14 @@
 @use "../imports/settings.import" as *;
+@use "../imports/tools.import" as *;
 
 /* Here we define the custom properties */
 :root {
   --type-primary: system-ui, -apple-system, sans-serif;
   --type-secondary: Verdana;
+}
+
+html {
+  @include customScroll($highlight, $stroke, 0.1rem);
 }
 
 /* We reset the margins and paddings of all labels. */
