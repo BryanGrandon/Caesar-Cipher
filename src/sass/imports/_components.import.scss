@@ -1,6 +1,16 @@
-@forward "../components/wave.bottom.components";
-@forward "../components/navbar.components";
-@forward "../components/options.components";
-@forward "../components/title.h2.components";
-@forward "../components/select.mode.components";
-@forward "../components/copy.icon.button.components";
+// Wave
+@forward "/src/sass/components/wave/wave.bottom.components";
+@forward "/src/sass/components/wave/wave.top.components";
+
+// Buttons
+@forward "/src/sass/components/copy.icon.button.components";
+
+// Navbar
+@forward "/src/sass/components/navbar.components";
+
+@forward "/src/sass/components/options.components";
+
+// Titles
+@forward "/src/sass/components/title.h2.components";
+
+@forward "/src/sass/components/select.mode.components";

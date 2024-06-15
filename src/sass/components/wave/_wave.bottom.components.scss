@@ -1,0 +1,24 @@
+@use "/src/sass/imports/settings.import" as *;
+
+.wave-bottom {
+  position: absolute;
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  bottom: 0;
+
+  &__svg {
+    height: 100%;
+    width: 100%;
+  }
+  &__path {
+    stroke: none;
+    fill: $white;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .wave-bottom__path {
+    fill: $dark;
+  }
+}
