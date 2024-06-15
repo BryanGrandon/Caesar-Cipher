@@ -1,0 +1,71 @@
+@use "../imports/tools.import" as *;
+@use "../imports/settings.import" as *;
+
+.footer {
+  background-image: url("https://cdn.pixabay.com/photo/2024/05/16/20/21/digital-8766930_1280.png");
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+
+  &__bg {
+    background-color: #000000ab;
+    height: inherit;
+  }
+
+  &__container {
+    @include customFlex(column, nowrap, normal, normal);
+    gap: 1rem;
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem 1rem;
+  }
+  &__blank {
+    display: block;
+    height: 3rem;
+  }
+  &__social {
+    @include customFlex(row, nowrap, normal, center);
+
+    &-hr {
+      border-top: 1px solid $highlight;
+      border: 1px solid $tertiary;
+      width: 100%;
+    }
+    &-list {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0 0.5rem;
+      color: $tertiary;
+      &-icon {
+        font-size: 1.6rem;
+        padding: 0.2rem;
+        z-index: 1;
+      }
+    }
+  }
+  &__info {
+    @include customFlex(column, nowrap, normal, center);
+    gap: 0.4rem;
+    &-logo {
+      font-size: 1.2rem;
+      font-family: "Courier New", Courier, monospace;
+    }
+    &-copyright {
+      @include customFlex(row, nowrap, normal, center);
+      gap: 0.2rem;
+      color: $paragraph;
+    }
+    &-links {
+      display: flex;
+      gap: 1.2rem;
+      &-link {
+        cursor: pointer;
+        text-decoration: underline;
+        &:hover {
+          color: $tertiary;
+        }
+      }
+    }
+  }
+}

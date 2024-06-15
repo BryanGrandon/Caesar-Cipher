@@ -1,4 +1,5 @@
 import Content from "./container/content";
+import Footer from "./container/footer";
 import Header from "./container/header";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <>
       <Header />
       <Content />
+      <Footer />
     </>
   );
 }
