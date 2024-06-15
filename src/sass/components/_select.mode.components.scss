@@ -4,7 +4,6 @@
 .select-mode {
   @include customFlex(row, nowrap, space-evenly, center);
   gap: 1rem;
-  padding: 2rem 0;
 
   &__btn {
     font-family: "Courier New", Courier, monospace;
