@@ -1,5 +1,5 @@
 import React from "react";
-import WaveBottom from "../components/wave-bottom";
+import WaveBottom from "../components/wave/wave-bottom";
 import Navbar from "../components/navbar";
 
 function Header() {
