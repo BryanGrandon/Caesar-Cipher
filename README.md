@@ -12,7 +12,6 @@ The function of the website is to be able to encrypt and decrypt messages using 
 - [Vite](https://vitejs.dev/).
 - [sass](https://sass-lang.com/)
 - [React-icons](https://www.npmjs.com/package/react-icons).
-- [gh-pages](https://www.npmjs.com/package/gh-pages).
 
 ## 📊 Project status
 
