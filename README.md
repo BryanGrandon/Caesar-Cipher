@@ -15,4 +15,4 @@ The function of the website is to be able to encrypt and decrypt messages using 
 
 ## 📊 Project status
 
-⌛ In progress
+✅ [Completed](https://bryangrandon.github.io/Caesar-Cipher/)
